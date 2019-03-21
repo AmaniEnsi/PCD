@@ -12,7 +12,6 @@ import javax.persistence.Id;
 @Entity
 public class Etudiant implements Serializable {
 	@Id
-	@GeneratedValue
 	private Long id;
 	@Column(name="NOM",length=30)
 	private String nom;
@@ -29,8 +28,9 @@ public class Etudiant implements Serializable {
 	}
 	
 	// Pour moi
-	public Etudiant(String nom,String prenom, Date dateNaissance, String email, String photo) {
+	public Etudiant(long i ,String nom,String prenom, Date dateNaissance, String email, String photo) {
 		super();
+		this.id=i;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
